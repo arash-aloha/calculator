@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+:root {
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+$baseline: 3rem;
+
+$white: #FFFF;
+$darkgrey: #2E2727;
+$lightgrey: #EBE8E0;
+$midgrey: #767574;
+$bigRadius: .5rem;
+$smallRadius: .25rem;
+$yellowgold: #FFA216;
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    @include center;
+
+    main {
+        display: grid;
+        grid-template-columns: repeat(4, $baseline);
+        gap: .5rem;
+        grid-auto-rows: $baseline * 1.2;
+        background: $darkgrey;
+        padding: .5rem;
+        border-radius: $bigRadius;
+        box-shadow: 0 0 3rem rgba($color: black, $alpha: .2) ;
+
+        input {
+            grid-column: auto / span 4;
+            border: none;
+            border-radius: $smallRadius;
+            background: $lightgrey;
+            padding: .5rem;
+            font-size: 1.6;
+            box-sizing: border-box;
+
+            &.focus {
+                outline: none;
+            }
+        }
+
+        button {
+            appearance: none;
+            background: $midgrey;
+            border: none;
+            border-radius: $smallRadius;
+            color: $white;
+            font-size: 1.6rem;
+            transition: .1s ease;
+
+            &:active {
+                transform: scale(0.95);
+                opacity: .9;
+            }
+
+            &.operator {
+                background: $yellowgold;
+            }
+            &#equal {
+                background: black;
+            }
+        }
+    }
+}
